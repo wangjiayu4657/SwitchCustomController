@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FirstViewController">
+            <connections>
+                <outlet property="contentTableView" destination="qxp-gr-fuG" id="n3i-nU-bWN"/>
+                <outlet property="menuTableView" destination="N4e-CI-aq7" id="hyn-DH-lbt"/>
+                <outlet property="view" destination="iN0-l3-epB" id="hYl-Ry-aLJ"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="N4e-CI-aq7" userLabel="GroupView">
+                    <rect key="frame" x="0.0" y="0.0" width="150" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Mnb-5S-uad"/>
+                        <outlet property="delegate" destination="-1" id="Mze-b6-gfh"/>
+                    </connections>
+                </tableView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qxp-gr-fuG" userLabel="ContentVIew">
+                    <rect key="frame" x="150" y="0.0" width="225" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Viq-uz-c60"/>
+                        <outlet property="delegate" destination="-1" id="ru3-pR-Bwc"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="qxp-gr-fuG" secondAttribute="trailing" id="JGZ-n7-cSE"/>
+                <constraint firstItem="N4e-CI-aq7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="NGO-f0-Twh"/>
+                <constraint firstAttribute="bottom" secondItem="qxp-gr-fuG" secondAttribute="bottom" id="P1v-wy-fmZ"/>
+                <constraint firstItem="N4e-CI-aq7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="jaI-6e-wwg"/>
+                <constraint firstItem="qxp-gr-fuG" firstAttribute="width" secondItem="N4e-CI-aq7" secondAttribute="width" multiplier="1.5" id="oAg-vg-SDV"/>
+                <constraint firstItem="qxp-gr-fuG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="sed-Sa-enz"/>
+                <constraint firstItem="qxp-gr-fuG" firstAttribute="leading" secondItem="N4e-CI-aq7" secondAttribute="trailing" id="uPY-Gc-lTn"/>
+                <constraint firstAttribute="bottom" secondItem="N4e-CI-aq7" secondAttribute="bottom" id="zkB-MW-JxQ"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="258.5" y="335.5"/>
+        </view>
+    </objects>
+</document>
