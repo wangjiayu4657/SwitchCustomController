@@ -20,8 +20,6 @@
 
 @implementation FirstViewController
 
-
-
 -(NSArray *)dataSource{
     if (!_dataSource) {
         _dataSource = [NSMutableArray array];
@@ -37,19 +35,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
     [self.menuTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
-    
 }
 
+#pragma mark - UITableViewDataSource
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (tableView == self.menuTableView) {
-        return self.dataSource.count;
-    }else {
-        WJYModel *model = self.dataSource[self.menuTableView.indexPathForSelectedRow.row];
-        return model.subcategories.count;
-    }
+    if (tableView == self.menuTableView) return self.dataSource.count;
+    
+    WJYModel *model = self.dataSource[self.menuTableView.indexPathForSelectedRow.row];
+    return model.subcategories.count;
+
 }
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
@@ -58,19 +54,20 @@
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView == self.menuTableView) {
-        static NSString *menuCellID = @"cell";
+        static NSString *menuCellID = @"menuCell";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:menuCellID];
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:menuCellID];
         }
         WJYModel *model = self.dataSource[indexPath.row];
         cell.textLabel.text = model.name;
+        cell.textLabel.highlightedTextColor = [UIColor magentaColor];
         cell.imageView.image = [UIImage imageNamed:model.icon];
         cell.imageView.highlightedImage = [UIImage imageNamed:model.highlighted_icon];
         return cell;
 
     }else {
-        static NSString *subCellID = @"cell";
+        static NSString *subCellID = @"subCell";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:subCellID];
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:subCellID];
@@ -82,9 +79,9 @@
 }
 
 
+#pragma mark - UITableViewDelegate
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (tableView == self.menuTableView) {
         [self.contentTableView reloadData];
     }

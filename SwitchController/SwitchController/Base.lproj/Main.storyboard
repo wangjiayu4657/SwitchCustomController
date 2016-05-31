@@ -78,6 +78,14 @@
                                     <constraint firstItem="Vq1-F4-rMm" firstAttribute="leading" secondItem="1BS-ds-SRV" secondAttribute="trailing" id="yqo-yx-AtI"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qOO-52-WP9" customClass="MyButton">
+                                <rect key="frame" x="141" y="327" width="75" height="30"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="可拖动按钮"/>
+                                <connections>
+                                    <action selector="testBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gXV-hB-aWM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -86,8 +94,17 @@
                             <constraint firstAttribute="trailing" secondItem="rhz-Ia-HHB" secondAttribute="trailing" id="Sxg-GA-yv6"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="首页" id="vb6-tN-Cvn"/>
+                    <navigationItem key="navigationItem" title="首页" id="vb6-tN-Cvn">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="bookmarks" id="aom-an-fXY">
+                            <connections>
+                                <action selector="itemAction:" destination="BYZ-38-t0r" id="0y9-nS-Gly"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="testbutton" destination="qOO-52-WP9" id="Tdp-Ke-rfe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
