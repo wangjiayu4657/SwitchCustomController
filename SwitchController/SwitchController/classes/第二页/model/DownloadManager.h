@@ -20,9 +20,6 @@ typedef void(^progress)(CGFloat progress);
 
 + (instancetype) shareManager;
 
-
-- (void) downloadWithUrl:(NSString *) url;
-
 /**
  *  文件下载
  *
@@ -33,14 +30,14 @@ typedef void(^progress)(CGFloat progress);
 - (void) downloadWithUrl:(NSString *)url withProgress:(progress)progress Complete:(complete) complete;
 
 /**
- * 开始下载
+ * 继续下载
  */
-- (void) startDownload;
+- (void) continueToDownload;
 
 /**
  * 暂停下载
  */
-- (void) pauseDownload;
+- (void) pauseToDownload;
 
 
 

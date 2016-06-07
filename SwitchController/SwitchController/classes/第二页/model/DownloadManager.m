@@ -75,11 +75,14 @@
 
 -(NSOutputStream *)outputStream{
     if (!_outputStream) {
-        _outputStream = [NSOutputStream outputStreamToFileAtPath:filePath append:YES];
+        _outputStream = [NSOutputStream outputStreamToFileAtPath:filePath append:YES];//如果找不到该目录则会自动创建一个目录
     }
     return _outputStream;
 }
 
+/**
+ *  创建任务
+ */
 -(NSURLSessionDataTask *)dataTask{
     if (!_dataTask) {
         NSInteger totalLength = [[NSDictionary dictionaryWithContentsOfFile:totalLengthFullPath][fileName] integerValue];
@@ -99,11 +102,6 @@
     return _dataTask;
 }
 
-- (void)downloadWithUrl:(NSString *)url {
-     self.url = url;
-    [self.dataTask resume];
-
-}
 
 - (void) downloadWithUrl:(NSString *)url withProgress:(progress)progress Complete:(complete)complete {
      self.url = url;
@@ -112,15 +110,16 @@
     myComplete = complete;
 }
 
-- (void)startDownload {
+- (void)continueToDownload {
     [self.dataTask resume];
 }
 
-- (void)pauseDownload {
+- (void)pauseToDownload {
     [self.dataTask suspend];
 }
 
 #pragma mark - <NSURLSessionDataDelegate>
+
 /**
  *  收到响应
  */
@@ -136,16 +135,19 @@
     
     completionHandler(NSURLSessionResponseAllow);
 }
+
 /**
  * 接收单服务器传回的数据(这个方法可能会被调 N 次)
  */
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data {
     [self.outputStream write:data.bytes maxLength:data.length];
     self.progress = 1.0 * downloadLength / self.totalLength;
+    
     if (myProgress) {
         myProgress(self.progress);
     }
 }
+
 /**
  * 请求完毕(成功或失败)
  */

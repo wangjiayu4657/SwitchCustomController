@@ -34,18 +34,19 @@
 }
 
 /**
- * 暂停下载
- */
-- (IBAction)pauseDownload:(id)sender {
-    [[DownloadManager shareManager] pauseDownload];
-}
-
-/**
  * 继续下载
  */
 - (IBAction)continueDownload:(id)sender {
-    [[DownloadManager shareManager] startDownload];
+    [[DownloadManager shareManager] continueToDownload];
 }
+
+/**
+ * 暂停下载
+ */
+- (IBAction)pauseDownload:(id)sender {
+    [[DownloadManager shareManager] pauseToDownload];
+}
+
 
 
 
