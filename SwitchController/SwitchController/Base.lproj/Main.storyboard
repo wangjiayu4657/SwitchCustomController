@@ -47,7 +47,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1BS-ds-SRV">
                                         <rect key="frame" x="125" y="0.0" width="125" height="44"/>
-                                        <state key="normal" title="two"/>
+                                        <state key="normal" title="大文件下载"/>
                                         <connections>
                                             <action selector="btnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FZu-fZ-qRq"/>
                                         </connections>
@@ -104,6 +104,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="testbutton" destination="qOO-52-WP9" id="Tdp-Ke-rfe"/>
+                        <outlet property="topBackView" destination="rhz-Ia-HHB" id="bWF-KI-zRc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
